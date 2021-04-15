@@ -16,9 +16,12 @@ public class Logica {
 	private Leon leon;
 	private Red red;
 
-	public Logica(PImage[] imagenes, PApplet app) {
+	private String[] cuento;
+
+	public Logica(PImage[] imagenes, String[] cuento, PApplet app) {
 
 		this.imagenes = imagenes;
+		this.cuento = cuento;
 		this.app = app;
 
 		PImage imgRatones[] = new PImage[7];
@@ -242,12 +245,22 @@ public class Logica {
 					raton.activar(false);
 					leon.movElemento(1075, 555, 3);
 					raton.setPintar(false);
+					editarCuento();
 					pantalla = 7;
 
 				}
 				break;
 			}
 		}
+	}
+
+	public void editarCuento() {
+		for (int i = 0; i < cuento.length; i++) {
+			cuento[i] = cuento[i].replaceAll("león", "LEÓN");
+			cuento[i] = cuento[i].replaceAll("ratón", "RATÓN");
+			cuento[i] = cuento[i].replaceAll("red", "RED");
+		}
+		app.saveStrings("Data/El leon y el raton editado.txt", cuento);
 	}
 
 }

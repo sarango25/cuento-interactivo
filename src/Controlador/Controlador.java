@@ -7,8 +7,8 @@ import processing.core.PImage;
 public class Controlador {
 	private Logica logica;
 
-	public Controlador(PImage[] imagenes, PApplet app) {
-		logica = new Logica(imagenes, app);
+	public Controlador(PImage[] imagenes, String[] cuento, PApplet app) {
+		logica = new Logica(imagenes, cuento, app);
 	}
 
 	public void fondos() {

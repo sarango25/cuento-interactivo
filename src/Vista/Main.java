@@ -85,7 +85,7 @@ public class Main extends PApplet {
 
 		pantalla = 0;
 
-		controlador = new Controlador(imagenes, this);
+		controlador = new Controlador(imagenes,cuento, this);
 	}
 
 	public void draw() {
