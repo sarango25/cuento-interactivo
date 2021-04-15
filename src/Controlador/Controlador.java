@@ -11,4 +11,12 @@ public class Controlador {
 		logica = new Logica(imagenes, app);
 	}
 
+	public void fondos() {
+		logica.fondos();
+	}
+
+	public void cambiarPantalla() {
+		logica.cambiarPantalla();
+	}
+
 }

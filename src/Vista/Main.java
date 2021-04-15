@@ -14,6 +14,8 @@ public class Main extends PApplet {
 	private String[] cuento;
 	private Controlador controlador;
 
+	int pantalla;
+
 	public static void main(String[] args) {
 		PApplet.main(Main.class.getName());
 
@@ -53,15 +55,47 @@ public class Main extends PApplet {
 
 		cuento = loadStrings("Data/El leon y el raton.txt");
 
-	
+		imagenes[0] = fin;
+		imagenes[1] = fondo1;
+		imagenes[2] = fondo2;
+		imagenes[3] = home1;
+		imagenes[4] = home1_1;
+		imagenes[5] = leon1;
+		imagenes[6] = leon2;
+		imagenes[7] = leon3;
+		imagenes[8] = leon4;
+		imagenes[9] = raton1;
+		imagenes[10] = raton2;
+		imagenes[11] = raton2_1;
+		imagenes[12] = raton3;
+		imagenes[13] = raton3_1;
+		imagenes[14] = raton4;
+		imagenes[15] = red1;
+		imagenes[16] = red1_1;
+		imagenes[17] = texto1;
+		imagenes[18] = texto1_1;
+		imagenes[19] = texto2;
+		imagenes[20] = texto2_1;
+		imagenes[21] = texto3;
+		imagenes[22] = texto3_1;
+		imagenes[23] = texto4;
+		imagenes[24] = texto4_1;
+
+		pantalla = 0;
 
 		controlador = new Controlador(imagenes, this);
 	}
 
 	public void draw() {
-		
-		background(0);
 
+		background(0);
+		controlador.fondos();
+		text("x:" + mouseX + "y:" + mouseY, mouseX, mouseY);
+
+	}
+
+	public void mousePressed() {
+		controlador.cambiarPantalla();
 	}
 
 }
