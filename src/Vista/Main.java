@@ -7,9 +7,9 @@ import processing.core.PImage;
 public class Main extends PApplet {
 
 	PImage fin, fondo1, fondo2, home1, home1_1, leon1, leon2, leon3, leon4, leon5, raton1, raton2, raton2_1, raton3,
-			raton3_1, raton4, red1, red1_1, texto1, texto1_1, texto2, texto2_1, texto3, texto3_1, texto4, texto4_1;
+			raton3_1, raton4,raton4_1, red1, red1_1, texto1, texto1_1, texto2, texto2_1, texto3, texto3_1, texto4, texto4_1;
 
-	PImage[] imagenes = new PImage[25];
+	PImage[] imagenes = new PImage[26];
 
 	private String[] cuento;
 	private Controlador controlador;
@@ -42,6 +42,7 @@ public class Main extends PApplet {
 		raton3 = loadImage("Imagenes/Raton_3.png");
 		raton3_1 = loadImage("Imagenes/Raton_3.1.png");
 		raton4 = loadImage("Imagenes/Raton_4.png");
+		raton4_1 = loadImage("Imagenes/Raton_4.1.png");
 		red1 = loadImage("Imagenes/Red_1.png");
 		red1_1 = loadImage("Imagenes/Red_1.1.png");
 		texto1 = loadImage("Imagenes/Texto_1.png");
@@ -70,16 +71,17 @@ public class Main extends PApplet {
 		imagenes[12] = raton3;
 		imagenes[13] = raton3_1;
 		imagenes[14] = raton4;
-		imagenes[15] = red1;
-		imagenes[16] = red1_1;
-		imagenes[17] = texto1;
-		imagenes[18] = texto1_1;
-		imagenes[19] = texto2;
-		imagenes[20] = texto2_1;
-		imagenes[21] = texto3;
-		imagenes[22] = texto3_1;
-		imagenes[23] = texto4;
-		imagenes[24] = texto4_1;
+		imagenes[15] = raton4_1;
+		imagenes[16] = red1;
+		imagenes[17] = red1_1;
+		imagenes[18] = texto1;
+		imagenes[19] = texto1_1;
+		imagenes[20] = texto2;
+		imagenes[21] = texto2_1;
+		imagenes[22] = texto3;
+		imagenes[23] = texto3_1;
+		imagenes[24] = texto4;
+		imagenes[25] = texto4_1;
 
 		pantalla = 0;
 

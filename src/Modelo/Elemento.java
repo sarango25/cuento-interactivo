@@ -11,15 +11,20 @@ public abstract class Elemento {
 
 		this.posX = posX;
 		this.posY = posY;
+		this.app = app;
 	}
 
-	public void movElemento() {
-
+	public PApplet getApp() {
+		return app;
 	}
 
-	public void pintar() {
-
+	public void setApp(PApplet app) {
+		this.app = app;
 	}
+
+	public abstract void movElemento(int posX,int posY,int posImg);
+
+	public abstract void pintar();
 
 	public int getPosX() {
 		return posX;

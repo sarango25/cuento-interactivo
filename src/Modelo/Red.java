@@ -8,21 +8,14 @@ public class Red extends Elemento {
 		super(posX, posY, app);
 
 	}
-	
-	public void activar() {
-		
-	}
 
-	@Override
-	public void movElemento() {
-		// TODO Auto-generated method stub
-		super.movElemento();
+	public void activar() {
+
 	}
 
 	@Override
 	public void pintar() {
-		// TODO Auto-generated method stub
-		super.pintar();
+
 	}
 
 	@Override
@@ -48,5 +41,11 @@ public class Red extends Elemento {
 		// TODO Auto-generated method stub
 		super.setPosY(posY);
 	}
-	
+
+	@Override
+	public void movElemento(int posX, int posY, int posImg) {
+		// TODO Auto-generated method stub
+
+	}
+
 }
