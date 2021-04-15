@@ -14,6 +14,7 @@ public class Logica {
 	private int interaccion;
 	private Raton raton;
 	private Leon leon;
+	private Red red;
 
 	public Logica(PImage[] imagenes, PApplet app) {
 
@@ -22,6 +23,7 @@ public class Logica {
 
 		PImage imgRatones[] = new PImage[7];
 		PImage imgLeones[] = new PImage[4];
+		PImage imgRed[] = new PImage[2];
 
 		fin = imagenes[0];
 		fondo1 = imagenes[1];
@@ -39,8 +41,8 @@ public class Logica {
 		imgRatones[4] = imagenes[13];
 		imgRatones[5] = imagenes[14];
 		imgRatones[6] = imagenes[15];
-		red1 = imagenes[16];
-		red1_1 = imagenes[17];
+		imgRed[0] = imagenes[16];
+		imgRed[1] = imagenes[17];
 		texto1 = imagenes[18];
 		texto1_1 = imagenes[19];
 		texto2 = imagenes[20];
@@ -52,6 +54,7 @@ public class Logica {
 
 		raton = new Raton(0, 650, imgRatones, app);
 		leon = new Leon(1045, 625, imgLeones, app);
+		red = new Red(1045, 625, imgRed, app);
 
 		pantalla = 0;
 	}
@@ -112,12 +115,13 @@ public class Logica {
 			break;
 
 		}
+		red.pintar();
 
-		leon.pintar();
-
-		if (leon.getEstado() != 2) {
-			raton.pintar();
+		if (!red.isPintar()) {
+			leon.pintar();
 		}
+
+		raton.pintar();
 
 	}
 
@@ -192,11 +196,57 @@ public class Logica {
 			app.image(texto2, 0, 0);
 			if (194 < app.mouseX && app.mouseX < 417 && 361 < app.mouseY && app.mouseY < 432) {
 				pantalla = 4;
-				leon.movElemento(1075,555,2);
+				leon.movElemento(1075, 555, 2);
+				raton.setPintar(false);
 			}
 
 			break;
 
+		case 4:
+			app.image(texto3, 0, 0);
+			if (194 < app.mouseX && app.mouseX < 417 && 361 < app.mouseY && app.mouseY < 432) {
+				pantalla = 5;
+				red.setPintar(true);
+				raton.setPintar(true);
+				raton.movElemento(250, 650, 1);
+			}
+
+			break;
+
+		case 5:
+			app.image(fondo2, 0, 0);
+			if (194 < app.mouseX && app.mouseX < 417 && 361 < app.mouseY && app.mouseY < 432) {
+				pantalla = 6;
+				interaccion = 0;
+				red.activar(true);
+			}
+
+			break;
+
+		case 6:
+
+			switch (interaccion) {
+
+			case 0:
+				if (771 < app.mouseX && app.mouseX < 1290 && 434 < app.mouseY && app.mouseY < 767) {
+					interaccion = 1;
+					red.activar(false);
+					raton.activar(true);
+					raton.movElemento(1038, 615, 5);
+				}
+				break;
+
+			case 1:
+				if (1004 < app.mouseX && app.mouseX < 1125 && 557 < app.mouseY && app.mouseY < 683) {
+					red.setPintar(false);
+					raton.activar(false);
+					leon.movElemento(1075, 555, 3);
+					raton.setPintar(false);
+					pantalla = 7;
+
+				}
+				break;
+			}
 		}
 	}
 

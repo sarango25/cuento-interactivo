@@ -1,45 +1,48 @@
 package Modelo;
 
 import processing.core.PApplet;
+import processing.core.PConstants;
+import processing.core.PImage;
 
 public class Red extends Elemento {
 
-	public Red(int posX, int posY, PApplet app) {
-		super(posX, posY, app);
+	private PImage red[];
+	private boolean estado;
+	private boolean pintar;
+	private int posImg;
 
+	public Red(int posX, int posY, PImage red[], PApplet app) {
+		super(posX, posY, app);
+		this.red = red;
+		estado = false;
+		pintar = false;
+		posImg = 0;
 	}
 
-	public void activar() {
-
+	public void activar(boolean activar) {
+		estado = activar;
 	}
 
 	@Override
 	public void pintar() {
+		if (pintar) {
+			
+			getApp().imageMode(PConstants.CENTER);
 
-	}
+			if (estado == false) {
+				getApp().image(red[posImg], getPosX(), getPosY());
+			} else {
+				if ((getApp().millis() / 1000) % 2 == 0) {
 
-	@Override
-	public int getPosX() {
-		// TODO Auto-generated method stub
-		return super.getPosX();
-	}
+					getApp().image(red[posImg + 1], getPosX(), getPosY());
+				} else {
+					getApp().image(red[posImg], getPosX(), getPosY());
+				}
+			}
 
-	@Override
-	public void setPosX(int posX) {
-		// TODO Auto-generated method stub
-		super.setPosX(posX);
-	}
+			getApp().imageMode(PConstants.CORNER);
+		}
 
-	@Override
-	public int getPosY() {
-		// TODO Auto-generated method stub
-		return super.getPosY();
-	}
-
-	@Override
-	public void setPosY(int posY) {
-		// TODO Auto-generated method stub
-		super.setPosY(posY);
 	}
 
 	@Override
@@ -47,5 +50,14 @@ public class Red extends Elemento {
 		// TODO Auto-generated method stub
 
 	}
+
+	public boolean isPintar() {
+		return pintar;
+	}
+
+	public void setPintar(boolean pintar) {
+		this.pintar = pintar;
+	}
+	
 
 }
